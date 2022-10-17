@@ -127,7 +127,7 @@ class Lexicon:
 
         ##################################################
         # TODO Coding Task 3 and 4
-        return sorted([(currword, cossim(np.add(np.subtract(self.get_vector(word), (self.get_vector(minus) if minus is not None else [0] * 100)), (self.get_vector(plus) if plus is not None else [0] * 100)), self.get_vector(currword))) for currword in self.word_emb_dict if currword not in exclude_w], key=lambda tup: tup[1], reverse=True)[:n]
+        return sorted([(currword, cossim(np.add(np.subtract(self.get_vector(word), (self.get_vector(minus) if minus is not None else [0] * 100)), (self.get_vector(plus) if plus is not None else [0] * 100)), self.get_vector(currword))) for currword in self.word_emb_dict if currword not in exclude_w if currword != minus if currword != plus], key=lambda tup: tup[1], reverse=True)[:n]
         ##################################################
 
 
